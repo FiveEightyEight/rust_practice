@@ -1,6 +1,7 @@
 struct City {
     description: String,
-    residents: u64,
+    // residents: u64,
+    is_coastal: bool,
     // 👉 TODO add a field here for is_coastal: bool
     //
     // 💡 HINT: this will cause other compiler errors.
@@ -8,22 +9,20 @@ struct City {
 }
 
 fn new_city(residents: u64, is_coastal: bool) -> City {
-    if is_coastal {
-        City {
-            description: format!("a *coastal* city of approximately {} residents", residents),
-            residents,
-        }
-    } else {
-        panic!(
-            "👉 TODO return a `City` described as a *non-coastal* city of approximately {} residents"
-        );
+    let constal_string: &str = if is_coastal { "*costal*" } else { "*non-coastal*" };
+
+    City {
+        description: format!("a {} city of approximately {} residents", constal_string, residents),
+        // residents,
+        is_coastal,
     }
-}
+
+} 
 
 fn main() {
-    let rustville: City = panic!("👉 TODO call new_city here, with whatever arguments you like!");
+    let rustville: City = new_city(100000, false);
 
-    println!("This city can be described as: 👉 TODO print rustville's `description` here.");
+    println!("This city can be described as: {}", rustville.description);
 
     if rustville.is_coastal {
         println!("It is a coastal city.");
