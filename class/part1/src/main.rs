@@ -15,7 +15,7 @@ fn print_population(adults: u64, kids: u32, buildings: u32) {
     // 👉 TODO compute buildings_per_person by dividing buildings by population
     //
     // 💡 TIP: To get a f64 answer here, both numerator and denominator must be f64 values
-    let buildings_per_person = population as f64 / buildings as f64;
+    let buildings_per_person = buildings as f64 / population as f64 ;
 
     println!("    Population: {}", population);
     println!("        Adults: {}", adults);
